@@ -4,11 +4,6 @@ namespace RepositoryT.EntityFramework.SimpleBusiness.Entities
 {
     public class User
     {
-        public User()
-        {
-
-        }
-
         [Key]
         public int Id { get; set; }
 

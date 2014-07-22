@@ -3,9 +3,9 @@ using RepositoryT.Infrastructure;
 
 namespace RepositoryT.EntityFramework.SimpleBusiness.Repository
 {
-    public class UserEntityRepository : EntityRepository<User, SampleDataContext>, IUserRepository
+    public class UserRepository : EntityRepository<User, SampleDataContext>, IUserRepository
     {
-        public UserEntityRepository(IDataContextFactory<SampleDataContext> databaseFactory)
+        public UserRepository(IDataContextFactory<SampleDataContext> databaseFactory)
             : base(databaseFactory)
         {
         }

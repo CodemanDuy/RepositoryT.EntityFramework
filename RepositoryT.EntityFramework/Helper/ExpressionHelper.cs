@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace RepositoryT.EntityFramework.Helper
 {
-    public static class ExpressionHelper
+    internal static class ExpressionHelper
     {
         public static string GetPropertyName(Expression<Func<object, object>> property)
         {
