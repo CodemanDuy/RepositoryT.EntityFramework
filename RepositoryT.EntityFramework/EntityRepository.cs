@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
@@ -46,7 +45,7 @@ namespace RepositoryT.EntityFramework
 
         public virtual void Delete(Expression<Func<T, bool>> where)
         {
-            IEnumerable<T> objects = Enumerable.AsEnumerable<T>(_dbset.Where(@where));
+            IEnumerable<T> objects = _dbset.Where(@where).AsEnumerable();
             foreach (T obj in objects)
                 _dbset.Remove(obj);
         }
@@ -75,22 +74,17 @@ namespace RepositoryT.EntityFramework
 
         public virtual IEnumerable<T> GetAll()
         {
-            return Enumerable.ToList<T>(_dbset);
+            return _dbset.ToList();
         }
 
         public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where)
         {
-            return Enumerable.ToList<T>(_dbset.Where(@where));
+            return _dbset.Where(@where).ToList();
         }
 
         public virtual IQueryable<T> IncludeSubSets(params Expression<Func<T, object>>[] includeProperties)
         {
-            IQueryable<T> query = _dbset;
-            foreach (var includeProperty in includeProperties)
-            {
-                query = query.Include(includeProperty);
-            }
-            return query;
+            return includeProperties.Aggregate<Expression<Func<T, object>>, IQueryable<T>>(_dbset, (current, includeProperty) => current.Include(includeProperty));
         }
 
         public List<TDynamicEntity> GetDynamic<TTable, TDynamicEntity>(Expression<Func<TTable, object>> selector, Func<object, TDynamicEntity> maker) where TTable : class
