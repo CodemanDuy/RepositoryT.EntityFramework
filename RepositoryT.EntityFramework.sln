@@ -1,22 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryT.EntityFramework", "RepositoryT.EntityFramework\RepositoryT.EntityFramework.csproj", "{9B449064-17A2-47F3-8BFD-BE93637DE794}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryT.EntityFramework.ConsoleSample", "RepositoryT.EntityFramework.ConsoleSample\RepositoryT.EntityFramework.ConsoleSample.csproj", "{20DEFB49-92C1-46BF-8374-56A9949AE7EF}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{ABBA9A6F-2F9D-44C1-8879-03A04D014DEB}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryT.EntityFramework.AutofacConsoleSample", "RepositoryT.EntityFramework.AutofacConsoleSample\RepositoryT.EntityFramework.AutofacConsoleSample.csproj", "{4DD5CE5F-DA28-4892-B41F-7F5EBF366FE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryT.EntityFramework.SimpleBusiness", "RepositoryT.EntityFramework.SimpleBusiness\RepositoryT.EntityFramework.SimpleBusiness.csproj", "{60386815-8F74-41CC-9A10-76FCADAF60F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryT.EntityFramework.Test", "RepositoryT.EntityFramework.Test\RepositoryT.EntityFramework.Test.csproj", "{B9E3CA17-760F-4C7C-A7CB-753F8982AFC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B20AD2DA-E12D-4653-B185-4555FAF4460E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
