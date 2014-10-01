@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using RepositoryT.Infrastructure;
 
 namespace RepositoryT.EntityFramework
@@ -16,7 +17,8 @@ namespace RepositoryT.EntityFramework
         {
             if (DataContext != null)
             {
-                DataContext.SaveChanges();
+                var dbContext = DataContext as DbContext;
+                if (dbContext != null) dbContext.SaveChanges();
             }
         }
     }

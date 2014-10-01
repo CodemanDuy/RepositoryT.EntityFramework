@@ -47,7 +47,9 @@ namespace RepositoryT.EntityFramework
         {
             IEnumerable<T> objects = _dbset.Where(@where).AsEnumerable();
             foreach (T obj in objects)
+            {
                 _dbset.Remove(obj);
+            }
         }
         public virtual void Delete(int id)
         {

@@ -58,8 +58,7 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="RepositoryT, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="RepositoryT">
       <HintPath>..\packages\RepositoryT.0.2.0\lib\RepositoryT.dll</HintPath>
     </Reference>
     <Reference Include="System" />

@@ -8,6 +8,7 @@ namespace RepositoryT.EntityFramework.SimpleBusiness.Repository
         public UserRepository(IDataContextFactory<SampleDataContext> databaseFactory)
             : base(databaseFactory)
         {
+
         }
     }
 }
