@@ -7,24 +7,23 @@ namespace RepositoryT.EntityFramework.AutofacConsoleSample
 {
     public class AutofacDependencyResolverAdapter : IDependencyResolverAdapter
     {
-        private readonly IComponentContext _container;
+        private readonly ILifetimeScope _scope;
        
-
-        public AutofacDependencyResolverAdapter(IComponentContext container)
+        public AutofacDependencyResolverAdapter(ILifetimeScope scope)
         {
-            _container = container;
+            _scope = scope;
            
         }
 
         public object GetService(Type serviceType)
         {
-            return _container.Resolve(serviceType);
+            return _scope.Resolve(serviceType);
         }
 
         public IEnumerable<object> GetServices(Type serviceType)
         {
             var enumerableServiceType = typeof(IEnumerable<>).MakeGenericType(serviceType);
-            var instance = _container.Resolve(enumerableServiceType);
+            var instance = _scope.Resolve(enumerableServiceType);
 
             return (IEnumerable<object>)instance;
         }

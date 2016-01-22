@@ -74,6 +74,7 @@
     <Compile Include="PerRequestContextHandler.cs" />
     <Compile Include="WebApiDependencyResolverAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebDataContextFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
