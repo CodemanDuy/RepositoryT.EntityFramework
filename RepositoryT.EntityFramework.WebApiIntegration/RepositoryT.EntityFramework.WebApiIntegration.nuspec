@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>RepositoryT.EntityFramework.WebApiIntegration</id>
+        <version>0.1.1</version>
+        <title>RepositoryT.EntityFramework.WebApiIntegration</title>
+        <authors>ziyasal</authors>
+        <owners>ziyasal</owners>
+        <projectUrl>https://github.com/ziyasal/RepositoryT.EntityFramework</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Generic Repository and UnitOfWork Pattern implementation with base classes for Entity Framework</description>
+        <summary>Generic Repository and UnitOfWork Pattern implementation with base classes for Entity Framework</summary>
+        <language>en-US</language>
+        <tags>unitofwork repository generic data entityframework ef orm</tags>
+        <dependencies>
+            <dependency id="RepositoryT.EntityFramework" version="0.4.0" />
+            <dependency id="RepositoryT" version="0.2.2" />
+            <dependency id="Microsoft.AspNet.WebApi.WebHost" version="5.2.3" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Release\RepositoryT.EntityFramework.WebApiIntegration.dll" target="lib\net451\RepositoryT.EntityFramework.WebApiIntegration.dll" />
+    </files>
+</package>

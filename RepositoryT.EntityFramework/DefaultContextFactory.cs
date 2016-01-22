@@ -1,4 +1,5 @@
 ﻿using System;
+using RepositoryT.EntityFramework.Interfaces;
 using RepositoryT.Infrastructure;
 
 namespace RepositoryT.EntityFramework
@@ -13,7 +14,15 @@ namespace RepositoryT.EntityFramework
         {
             return _dataContext ?? (_dataContext = new TContext());
         }
+        public void Create()
+        {
+            _dataContext = new TContext();
+        }
 
+        public void Release()
+        {
+            Dispose();
+        }
         #endregion
 
         public void Dispose()

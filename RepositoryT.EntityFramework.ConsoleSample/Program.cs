@@ -76,9 +76,9 @@ namespace RepositoryT.EntityFramework.ConsoleSample
 
         private static UserService GetService()
         {
-            IDataContextFactory<SampleDataContext> dataContextFactory = new DataContextFactory();
-            IUserRepository userRepository = new UserRepository(dataContextFactory);
-            IUnitOfWork uow = new UnitOfWork<SampleDataContext>(dataContextFactory);
+            IDependencyResolverAdapter resolverAdapter = new DummyDependencyResolverAdapter();
+            IUserRepository userRepository = new UserRepository(resolverAdapter);
+            IUnitOfWork uow = new EfUnitOfWork<SampleDataContext>(resolverAdapter);
             return new UserService(uow, userRepository);
         }
     }

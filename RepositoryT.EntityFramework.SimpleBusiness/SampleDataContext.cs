@@ -1,4 +1,5 @@
 using System.Data.Entity;
+using RepositoryT.EntityFramework.Interfaces;
 using RepositoryT.EntityFramework.SimpleBusiness.Entities;
 
 namespace RepositoryT.EntityFramework.SimpleBusiness

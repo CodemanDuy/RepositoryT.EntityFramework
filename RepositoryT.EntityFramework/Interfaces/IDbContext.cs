@@ -1,12 +1,12 @@
 using System;
-using System.Data.Entity;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 
-namespace RepositoryT.EntityFramework
+namespace RepositoryT.EntityFramework.Interfaces
 {
-    public interface IDbContext : IDisposable
+    public interface IDbContext : IDisposable, IObjectContextAdapter
     {
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
         DbSet Set(Type entityType);

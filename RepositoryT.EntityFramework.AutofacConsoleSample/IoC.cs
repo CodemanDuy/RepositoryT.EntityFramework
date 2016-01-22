@@ -13,10 +13,14 @@ namespace RepositoryT.EntityFramework.AutofacConsoleSample
         {
             var builder = new ContainerBuilder();
 
-            builder.Register<IDataContextFactory<SampleDataContext>>(x => new DefaultDataContextFactory<SampleDataContext>()).InstancePerLifetimeScope();
-            builder.Register<IUserRepository>(x => new UserRepository(x.Resolve<IDataContextFactory<SampleDataContext>>())).SingleInstance();
-            builder.Register<IUnitOfWork>(x => new UnitOfWork<SampleDataContext>(x.Resolve<IDataContextFactory<SampleDataContext>>())).SingleInstance();
-            builder.Register<IUserService>(x => new UserService(x.Resolve<IUnitOfWork>(), x.Resolve<IUserRepository>())).SingleInstance();
+            builder.RegisterType<AutofacDependencyResolverAdapter>().As<IDependencyResolverAdapter>().SingleInstance();
+
+            builder.RegisterType<DefaultDataContextFactory<SampleDataContext>>().As<IDataContextFactory<SampleDataContext>>().InstancePerDependency();
+            builder.RegisterType<EfUnitOfWork<SampleDataContext>>().As<IUnitOfWork>().SingleInstance();
+            builder.RegisterType<UserRepository>().As<IUserRepository>().SingleInstance();
+            builder.RegisterType<UserService>().As<IUserService>().SingleInstance();
+
+
             Container = builder.Build();
         }
 

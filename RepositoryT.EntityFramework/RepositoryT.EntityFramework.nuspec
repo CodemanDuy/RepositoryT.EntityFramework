@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>RepositoryT.EntityFramework</id>
+        <version>0.4.0</version>
+        <title>RepositoryT.EntityFramework</title>
+        <authors>ziyasal</authors>
+        <owners>ziyasal</owners>
+        <projectUrl>https://github.com/ziyasal/RepositoryT.EntityFramework</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Generic Repository and UnitOfWork Pattern implementation with base classes for Entity Framework</description>
+        <summary>Generic Repository and UnitOfWork Pattern implementation with base classes for Entity Framework</summary>
+        <language>en-US</language>
+        <tags>unitofwork repository generic data entityframework ef orm</tags>
+        <dependencies>
+            <dependency id="EntityFramework" version="5.0.0" />
+            <dependency id="RepositoryT" version="0.2.2" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Release\RepositoryT.EntityFramework.dll" target="lib\net451\RepositoryT.EntityFramework.dll" />
+    </files>
+</package>
