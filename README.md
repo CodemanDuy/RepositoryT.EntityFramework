@@ -50,18 +50,6 @@ Generic Repository and Pattern UnitOfWork implementation with base classes.
   }
 ```
 
-**sample autofac registrations**
-```csharp
-  var builder = new ContainerBuilder();
-
-  builder.RegisterType<AutofacDependencyResolverAdapter>().As<IDependencyResolverAdapter>().SingleInstance();
-  builder.RegisterType<DefaultDataContextFactory<SampleDataContext>>()
-         .As<IDataContextFactory<SampleDataContext>>().InstancePerDependency();
-  builder.RegisterType<EfUnitOfWork<SampleDataContext>>().As<IUnitOfWork>().SingleInstance();
-  builder.RegisterType<UserRepository>().As<IUserRepository>().SingleInstance();
-  builder.RegisterType<UserService>().As<IUserService>().SingleInstance();
-
-  container = builder.Build();
-```
+**[To see sample autofac registrations](https://github.com/ziyasal/RepositoryT.EntityFramework/blob/master/RepositoryT.EntityFramework.AutofacConsoleSample/IoC.cs)**
 
 **NOTE :** To see more samples please look at code samples.
