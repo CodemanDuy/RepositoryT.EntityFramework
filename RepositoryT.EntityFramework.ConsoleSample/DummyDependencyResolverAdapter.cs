@@ -6,6 +6,7 @@ using RepositoryT.Infrastructure;
 
 namespace RepositoryT.EntityFramework.ConsoleSample
 {
+    //Plase use real IoC container solution in your apps.
     public class DummyDependencyResolverAdapter : IDependencyResolverAdapter
     {
         readonly ConcurrentDictionary<Type, object> _dictionary;
