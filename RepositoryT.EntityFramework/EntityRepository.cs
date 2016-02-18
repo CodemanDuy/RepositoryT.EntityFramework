@@ -15,8 +15,8 @@ namespace RepositoryT.EntityFramework
     where T : class
     where TContext : class, IDbContext, IDisposable
     {
-        protected EntityRepository(IDependencyResolverAdapter resolver) :
-            base(resolver)
+        protected EntityRepository(IServiceLocator serviceLocator) :
+            base(serviceLocator)
         {
         }
 
@@ -99,7 +99,7 @@ namespace RepositoryT.EntityFramework
 
         private T GetById(object id)
         {
-            IDbSet<T> dbSet = this.Set<T>();
+            IDbSet<T> dbSet = Set<T>();
             if (typeof(T).GetInterfaces().Contains(typeof(ISupportSoftDelete)))
             {
                 ParameterExpression itemParameter = Expression.Parameter(typeof(T), "item");
@@ -134,7 +134,7 @@ namespace RepositoryT.EntityFramework
 
         private T GetAnyById(object id)
         {
-            IDbSet<T> dbSet = this.Set<T>();
+            IDbSet<T> dbSet = Set<T>();
             if (typeof(T).GetInterfaces().Contains(typeof(ISupportSoftDelete)))
             {
                 ParameterExpression itemParameter = Expression.Parameter(typeof(T), "item");
@@ -254,7 +254,7 @@ namespace RepositoryT.EntityFramework
                 i++;
             }
 
-            builder.AppendFormat(" {0}", string.Join(",", parameters.ToList().Select(x => string.Format("{0}{1}", "@", x.Key))));
+            builder.AppendFormat(" {0}", string.Join(",", parameters.ToList().Select(x => $"{"@"}{x.Key}")));
 
             return ObjectContextWrapper.ExecuteStoreQuery<TResult>(procedureName, sqlParameterCollection).ToList<TResult>();
         }

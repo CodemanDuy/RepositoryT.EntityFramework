@@ -5,11 +5,11 @@ using RepositoryT.Infrastructure;
 
 namespace RepositoryT.EntityFramework.AutofacConsoleSample
 {
-    public class AutofacDependencyResolverAdapter : IDependencyResolverAdapter
+    public class AutofacServiceLocator : IServiceLocator
     {
         private readonly ILifetimeScope _scope;
        
-        public AutofacDependencyResolverAdapter(ILifetimeScope scope)
+        public AutofacServiceLocator(ILifetimeScope scope)
         {
             _scope = scope;
            

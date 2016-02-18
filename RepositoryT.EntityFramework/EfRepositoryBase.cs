@@ -8,7 +8,7 @@ namespace RepositoryT.EntityFramework
 {
     public class EfRepositoryBase<TContext> : RepositoryBase<TContext> where TContext : class, IDbContext, IDisposable
     {
-        public EfRepositoryBase(IDependencyResolverAdapter resolver) : base(resolver)
+        public EfRepositoryBase(IServiceLocator serviceLocator) : base(serviceLocator)
         {
         }
 
@@ -17,12 +17,6 @@ namespace RepositoryT.EntityFramework
             return DataContext.Set<T>();
         }
 
-        protected ObjectContext ObjectContextWrapper
-        {
-            get
-            {
-                return DataContext.ObjectContext;
-            }
-        }
+        protected ObjectContext ObjectContextWrapper => DataContext.ObjectContext;
     }
 }

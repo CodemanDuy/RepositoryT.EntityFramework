@@ -5,8 +5,8 @@ namespace RepositoryT.EntityFramework.SimpleBusiness.Repository
 {
     public class UserRepository : EntityRepository<User, SampleDataContext>, IUserRepository
     {
-        public UserRepository(IDependencyResolverAdapter resolver)
-            : base(resolver)
+        public UserRepository(IServiceLocator serviceLocator)
+            : base(serviceLocator)
         {
 
         }

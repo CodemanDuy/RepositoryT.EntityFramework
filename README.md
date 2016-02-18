@@ -11,7 +11,7 @@ Generic Repository and Pattern UnitOfWork implementation with base classes.
 
  public class UserRepository: EntityRepository <User, SampleDataContext> , IUserRepository 
  {
-  public UserRepository(IDependencyResolverAdapter resolver): base(resolver) {
+  public UserRepository(IServiceLocator serviceLocator): base(serviceLocator) {
 
   }
  }
@@ -54,7 +54,7 @@ Generic Repository and Pattern UnitOfWork implementation with base classes.
 ```csharp
   var builder = new ContainerBuilder();
 
-  builder.RegisterType<AutofacDependencyResolverAdapter>().As<IDependencyResolverAdapter>().SingleInstance();
+  builder.RegisterType<AutofacServiceLocator>().As<IServiceLocator>().SingleInstance();
   builder.RegisterType<DefaultDataContextFactory<SampleDataContext>>()
          .As<IDataContextFactory<SampleDataContext>>().InstancePerDependency();
   builder.RegisterType<EfUnitOfWork<SampleDataContext>>().As<IUnitOfWork>().SingleInstance();

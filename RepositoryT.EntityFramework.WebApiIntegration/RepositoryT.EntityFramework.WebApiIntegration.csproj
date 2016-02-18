@@ -42,8 +42,8 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RepositoryT, Version=0.2.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RepositoryT.0.2.2\lib\net45\RepositoryT.dll</HintPath>
+    <Reference Include="RepositoryT, Version=0.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RepositoryT.0.2.3\lib\net45\RepositoryT.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -72,7 +72,6 @@
   <ItemGroup>
     <Compile Include="ContextManager.cs" />
     <Compile Include="PerRequestContextHandler.cs" />
-    <Compile Include="WebApiDependencyResolverAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebDataContextFactory.cs" />
   </ItemGroup>

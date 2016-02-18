@@ -8,27 +8,18 @@ namespace RepositoryT.EntityFramework
 {
     public class EfUnitOfWork<TContext> :UnitOfWorkBase<TContext> where TContext : class, IDisposable, IObjectContextAdapter
     {
-        public EfUnitOfWork(IDependencyResolverAdapter resolver):base(resolver)
+        public EfUnitOfWork(IServiceLocator serviceLocator):base(serviceLocator)
         {
         }
 
-        protected ObjectContext ObjectContext
-        {
-            get { return DataContext.ObjectContext; }
-        }
+        protected ObjectContext ObjectContext => DataContext.ObjectContext;
 
-        protected ObjectStateManager ObjectStateManager
-        {
-            get { return ObjectContext.ObjectStateManager; }
-        }
+        protected ObjectStateManager ObjectStateManager => ObjectContext.ObjectStateManager;
 
         public override void Commit()
         {
-            if (DataContext != null)
-            {
-                var dbContext = DataContext as DbContext;
-                if (dbContext != null) dbContext.SaveChanges();
-            }
+            var dbContext = DataContext as DbContext;
+            dbContext?.SaveChanges();
         }
     }
 }

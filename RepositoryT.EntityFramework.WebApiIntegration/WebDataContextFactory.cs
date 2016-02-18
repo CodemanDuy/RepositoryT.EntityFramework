@@ -7,7 +7,7 @@ namespace RepositoryT.EntityFramework.WebApiIntegration
 {
     public class WebDataContextFactory<TContext> : IDataContextFactory<TContext> where TContext : class, IDbContext, IDisposable, new()
     {
-        private const string CONTEXT_KEY = "___REPOSITORY_T_EF_CONTEXT_HTTP_KEY";
+        private const string CONTEXT_KEY = "___REPOSITORY_T_EF_HTTP_KEY";
 
         public TContext GetContext()
         {
@@ -58,10 +58,7 @@ namespace RepositoryT.EntityFramework.WebApiIntegration
                 {
                     TContext context = (TContext)HttpContext.Current.Items[CONTEXT_KEY];
 
-                    if (context != null)
-                    {
-                        context.Dispose();
-                    }
+                    context?.Dispose();
 
                     HttpContext.Current.Items.Remove(CONTEXT_KEY);
                 }

@@ -12,19 +12,13 @@ namespace RepositoryT.EntityFramework.WebApiIntegration
         {
             ContextManager = request.GetDependencyScope().GetService(typeof(IContextManager)) as IContextManager;
 
-            if (ContextManager != null)
-            {
-                ContextManager.Create();
-            }
+            ContextManager?.Create();
 
             return base.SendAsync(request, cancellationToken).ContinueWith(task =>
             {
                 ContextManager = request.GetDependencyScope().GetService(typeof(IContextManager)) as IContextManager;
 
-                if (ContextManager != null)
-                {
-                    ContextManager.Release();
-                }
+                ContextManager?.Release();
 
                 return task.Result;
             }, cancellationToken);

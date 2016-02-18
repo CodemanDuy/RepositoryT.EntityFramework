@@ -13,7 +13,7 @@ namespace RepositoryT.EntityFramework.AutofacConsoleSample
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<AutofacDependencyResolverAdapter>().As<IDependencyResolverAdapter>().SingleInstance();
+            builder.RegisterType<AutofacServiceLocator>().As<IServiceLocator>().SingleInstance();
 
             builder.RegisterType<DefaultDataContextFactory<SampleDataContext>>().As<IDataContextFactory<SampleDataContext>>().InstancePerDependency();
             builder.RegisterType<EfUnitOfWork<SampleDataContext>>().As<IUnitOfWork>().SingleInstance();
