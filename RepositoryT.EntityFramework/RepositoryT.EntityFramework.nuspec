@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>RepositoryT.EntityFramework</id>
-        <version>0.4.0</version>
+        <version>0.5.0</version>
         <title>RepositoryT.EntityFramework</title>
         <authors>ziyasal</authors>
         <owners>ziyasal</owners>
@@ -14,7 +14,7 @@
         <tags>unitofwork repository generic data entityframework ef orm</tags>
         <dependencies>
             <dependency id="EntityFramework" version="5.0.0" />
-            <dependency id="RepositoryT" version="0.2.2" />
+            <dependency id="RepositoryT" version="0.2.3" />
         </dependencies>
     </metadata>
     <files>

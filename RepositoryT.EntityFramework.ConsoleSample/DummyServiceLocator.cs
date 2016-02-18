@@ -6,6 +6,7 @@ using RepositoryT.Infrastructure;
 
 namespace RepositoryT.EntityFramework.ConsoleSample
 {
+    //Plase use real IoC container solution in your apps.
     public class DummyServiceLocator : IServiceLocator
     {
         readonly ConcurrentDictionary<Type, object> _services;
@@ -14,9 +15,9 @@ namespace RepositoryT.EntityFramework.ConsoleSample
         {
             _services = new ConcurrentDictionary<Type, object>
             {
-                [typeof (IDataContextFactory<SampleDataContext>)] = new DefaultDataContextFactory<SampleDataContext>()
+                [typeof(IDataContextFactory<SampleDataContext>)] = new DefaultDataContextFactory<SampleDataContext>()
             };
-        } 
+        }
         public object GetService(Type serviceType)
         {
             return _services[serviceType];
