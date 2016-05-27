@@ -11,12 +11,13 @@ namespace RepositoryT.EntityFramework.WebApiIntegration
 
         public TContext GetContext()
         {
-            TContext dataContext = null;
+            TContext dataContext;
             if (HttpContext.Current != null)
             {
                 if (!HttpContext.Current.Items.Contains(CONTEXT_KEY))
                 {
-                    HttpContext.Current.Items[CONTEXT_KEY] = new TContext();
+                    dataContext=new TContext();
+                    HttpContext.Current.Items[CONTEXT_KEY] = dataContext;
                 }
                 else
                 {
