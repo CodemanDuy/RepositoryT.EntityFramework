@@ -8,27 +8,14 @@ namespace RepositoryT.EntityFramework
     {
         private TContext _dataContext;
 
-        #region IDatabaseFactory Members
-
         public TContext GetContext()
         {
             return _dataContext ?? (_dataContext = new TContext());
         }
-        public void Create()
-        {
-            _dataContext = new TContext();
-        }
-
-        public void Release()
-        {
-            Dispose();
-        }
-        #endregion
 
         public void Dispose()
         {
-            if (_dataContext != null)
-                _dataContext.Dispose();
+            _dataContext?.Dispose();
         }
     }
 }

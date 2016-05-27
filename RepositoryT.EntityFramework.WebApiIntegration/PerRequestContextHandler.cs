@@ -7,21 +7,14 @@ namespace RepositoryT.EntityFramework.WebApiIntegration
 {
     public class PerRequestContextHandler : DelegatingHandler
     {
-        private IContextManager ContextManager { get; set; }
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            ContextManager = request.GetDependencyScope().GetService(typeof(IContextManager)) as IContextManager;
+            var contextManager = request.GetDependencyScope().GetService(typeof(IContextManager)) as IContextManager;
 
-            ContextManager?.Create();
+            if (contextManager != null)
+                request.RegisterForDispose(contextManager);
 
-            return base.SendAsync(request, cancellationToken).ContinueWith(task =>
-            {
-                ContextManager = request.GetDependencyScope().GetService(typeof(IContextManager)) as IContextManager;
-
-                ContextManager?.Release();
-
-                return task.Result;
-            }, cancellationToken);
+            return base.SendAsync(request, cancellationToken);
         }
     }
 }

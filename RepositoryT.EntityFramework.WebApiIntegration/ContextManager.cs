@@ -13,14 +13,15 @@ namespace RepositoryT.EntityFramework.WebApiIntegration
             _contextFactory = contextFactory;
         }
 
-        public void Create()
-        {
-            _contextFactory.Create();
-        }
-
         public void Release()
         {
-            _contextFactory.Release();
+            TContext context = _contextFactory.GetContext();
+            context?.Dispose();
+        }
+
+        public void Dispose()
+        {
+            Release();
         }
     }
 }

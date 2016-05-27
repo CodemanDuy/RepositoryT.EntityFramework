@@ -39,8 +39,8 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="RepositoryT, Version=0.2.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RepositoryT.0.2.3\lib\net45\RepositoryT.dll</HintPath>
+    <Reference Include="RepositoryT, Version=0.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RepositoryT.0.2.6\lib\net45\RepositoryT.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
