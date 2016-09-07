@@ -15,7 +15,7 @@ namespace RepositoryT.EntityFramework.AutofacConsoleSample
 
             builder.RegisterType<AutofacServiceLocator>().As<IServiceLocator>().SingleInstance();
 
-            builder.RegisterType<DefaultDataContextFactory<SampleDataContext>>().As<IDataContextFactory<SampleDataContext>>().InstancePerDependency();
+            builder.RegisterType<DefaultDataContextFactory<SampleDataContext>>().As<IDataContextFactory<SampleDataContext>>().InstancePerLifetimeScope();
             builder.RegisterType<EfUnitOfWork<SampleDataContext>>().As<IUnitOfWork>().SingleInstance();
             builder.RegisterType<UserRepository>().As<IUserRepository>().SingleInstance();
             builder.RegisterType<UserService>().As<IUserService>().SingleInstance();
